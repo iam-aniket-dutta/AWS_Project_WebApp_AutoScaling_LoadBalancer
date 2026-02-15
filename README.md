@@ -23,13 +23,10 @@ Follow the below steps to configure a WebApp running on an AWS EC2 instance (par
 10. Create a Dynamic Scaling Policy with a CloudWatch Alarm and SNS (Simple Notification Service).
 11. Run CPU stress test on the ASG and check if scaling event triggers.   
 
-Steps to install and configure stress utility on Amazon Linux:-
-
-amazon-linux-extras install epel –y
-
-yum install stress -y
-
-stress --cpu 1 --timeout 800 &
+Now testing to the scaling functionality, run the following command on running instance which is created by auto scaling group.
+   Steps to install and configure stress utility on Amazon Linux:-
+   1. yum install stress -y
+   2. stress --cpu 1 --timeout 800 &
 
 Architectural Diagram:-
 
