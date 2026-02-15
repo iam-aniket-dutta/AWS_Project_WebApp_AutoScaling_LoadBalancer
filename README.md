@@ -1,4 +1,4 @@
-# webapp-asg-alb
+# Configure Web App with Autoscaling Group & Load Balancer functionality
 Webapp Deployment with an AWS AutoScaling Group, an Application Load Balancer, and a Dynamic Scaling policy (metric: CPU Utilization) configured using a CloudWatch Alarm, SNS and IAM.
 
 Follow the below steps to configure a WebApp running on an AWS EC2 instance (part of AutoScaling Group attached to an Application LB).
