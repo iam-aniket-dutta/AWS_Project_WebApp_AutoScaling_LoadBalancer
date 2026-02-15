@@ -1,37 +1,27 @@
 # webapp-asg-alb
 Webapp Deployment with an AWS AutoScaling Group, an Application Load Balancer, and a Dynamic Scaling policy (metric: CPU Utilization) configured using a CloudWatch Alarm, SNS and IAM.
 
-YouTube Video URL: https://youtu.be/dMUQTQS1l3g
-
-YouTube Channel: https://www.youtube.com/@techapricate
-
-Please follow the below steps to configure a WebApp running on an AWS EC2 instance (part of AutoScaling Group attached to an Application LB).
+Follow the below steps to configure a WebApp running on an AWS EC2 instance (part of AutoScaling Group attached to an Application LB).
 1.	Create an IAM user (example: adminjohn with Administrator access).
 2.	Create a Security Group for LT (Launch Template) and ALB (Application Load balancer).
 3.	Create a LT and an ASG (AutoScaling Group).
 4.	Launch an EC2 instance from LT.
 5.	SSH to the EC2 Instance and register a custom AMI (Amazon Machine Image) with WebApp Configuration.
 
-   WebApp configuration steps:
+      After SSH to instance run the fllowing commad for webApp configuration:
+      1. sudo su -
+      2. yum install httpd -y
+      3. git clone https://github.com/iam-aniket-dutta/AWS_Project_WebApp_AutoScaling_LoadBalancer.git
+      4. cp -r webapp-asg-alb/* /var/www/html
+      5. systemctl start httpd
+      6. systemctl enable httpd
    
-   sudo su -
-   
-   yum install httpd -y
-
-   git clone https://github.com/bhavukm/webapp-asg-alb.git
-
-   cp -r webapp-asg-alb/* /var/www/html
-
-   systemctl start httpd
-
-   systemctl enable httpd
-   
-7.	Update the LT with new AMI.
-8.	Perform ASG Instance Refresh.
-9.	Create a TG (Target Group)) and an ALB.
-10.	Attach the ALB with ASG.
-11.	Create a Dynamic Scaling Policy with a CloudWatch Alarm and SNS (Simple Notification Service).
-12.	Run CPU stress test on the ASG and check if scaling event triggers.   
+6.	Update the LT with new AMI.
+7.	Perform ASG Instance Refresh.
+8.	Create a TG (Target Group)) and an ALB.
+9.	Attach the ALB with ASG.
+10. Create a Dynamic Scaling Policy with a CloudWatch Alarm and SNS (Simple Notification Service).
+11. Run CPU stress test on the ASG and check if scaling event triggers.   
 
 Steps to install and configure stress utility on Amazon Linux:-
 
